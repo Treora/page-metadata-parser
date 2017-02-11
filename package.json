@@ -12,6 +12,7 @@
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.17.0",
+    "babel-cli": "^6.22.2",
     "babel-loader": "^6.2.5",
     "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.14.0",
@@ -41,6 +42,7 @@
   ],
   "license": "MPL-2.0",
   "main": "parser.js",
+  "browser": "lib/parser.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mozilla/page-metadata-parser.git"
@@ -53,6 +55,10 @@
     "test:lint": "eslint .",
     "test:mocha": "istanbul cover _mocha --report lcovonly -- tests/*.test.js -R spec",
     "bundle": "webpack --optimize-minimize --optimize-dedupe",
-    "clientize": "npm run bundle"
+    "clientize": "npm run bundle",
+    "transpile": "babel parser.js --out-dir lib"
+  },
+  "babel": {
+    "presets": ["es2015"]
   }
 }
